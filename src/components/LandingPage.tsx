@@ -1,8 +1,10 @@
 'use client'
 import React, { useState } from 'react';
 import { ServicesSection, ProjectsSection } from '@/components/Sections';
+import { Menu, X } from 'lucide-react';
 
 const LandingPage = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     nombre: '',
     correo: '',
@@ -31,7 +33,9 @@ const LandingPage = () => {
       <nav className="bg-blue-800 text-white py-4 px-6 fixed w-full top-0 z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-xl font-bold">GRUPO F.O.M</div>
-          <div className="space-x-6">
+          
+          {/* Desktop Menu */}
+          <div className="hidden md:flex space-x-6">
             <button 
               onClick={() => scrollToSection('inicio')} 
               className="hover:text-gray-200"
@@ -57,7 +61,63 @@ const LandingPage = () => {
               Contáctanos
             </button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden"
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-blue-800 border-t border-blue-700">
+            <div className="flex flex-col px-4 py-4 space-y-4">
+              <button 
+                onClick={() => {
+                  scrollToSection('inicio');
+                  setIsMenuOpen(false);
+                }} 
+                className="hover:text-gray-200 text-left"
+              >
+                Inicio
+              </button>
+              <button 
+                onClick={() => {
+                  scrollToSection('servicios');
+                  setIsMenuOpen(false);
+                }} 
+                className="hover:text-gray-200 text-left"
+              >
+                Servicios
+              </button>
+              <button 
+                onClick={() => {
+                  scrollToSection('proyectos');
+                  setIsMenuOpen(false);
+                }} 
+                className="hover:text-gray-200 text-left"
+              >
+                Proyectos
+              </button>
+              <button 
+                onClick={() => {
+                  scrollToSection('contactanos');
+                  setIsMenuOpen(false);
+                }} 
+                className="hover:text-gray-200 text-left"
+              >
+                Contáctanos
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -79,10 +139,6 @@ const LandingPage = () => {
               alt="Construction site"
               className="relative z-10 rounded-lg w-full h-full object-cover"
             />
-            <div className="absolute bottom-4 left-4 bg-blue-900 text-white p-4 rounded-lg">
-              <div className="text-3xl font-bold">10+</div>
-              <div className="text-sm">Años en el mercado</div>
-            </div>
           </div>
         </div>
       </section>
@@ -91,10 +147,10 @@ const LandingPage = () => {
       <section className="py-20 px-6">
         <div className="flex items-center justify-center max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="grid grid-cols-2 gap-4">
-            <img src="/images/project-1.jpg" alt="Project 1" className="w-full max-h-[227px] lg:min-h-[227px] rounded-lg" />
-            <img src="/images/project-2.jpg" alt="Project 2" className="w-full max-h-[227px] lg:min-h-[227px] rounded-lg" />
-            <img src="/images/project-3.jpg" alt="Project 3" className="w-full max-h-[227px] lg:min-h-[227px] rounded-lg" />
-            <img src="/images/project-4.jpg" alt="Project 4" className="w-full max-h-[227px] lg:min-h-[227px] rounded-lg" />
+            <img src="/images/project-1.jpg" alt="Project 1" className="w-full lg:max-h-[227px] lg:min-h-[227px] min-h-[131px] max-h-[131px] rounded-lg" />
+            <img src="/images/project-2.jpg" alt="Project 2" className="w-full lg:max-h-[227px] lg:min-h-[227px] min-h-[131px] max-h-[131px] rounded-lg" />
+            <img src="/images/project-3.jpg" alt="Project 3" className="w-full lg:max-h-[227px] lg:min-h-[227px] min-h-[131px] max-h-[131px] rounded-lg" />
+            <img src="/images/project-4.jpg" alt="Project 4" className="w-full lg:max-h-[227px] lg:min-h-[227px] min-h-[131px] max-h-[131px] rounded-lg" />
           </div>
           <div className="space-y-6">
             <h2 className="text-black text-3xl font-bold">Lorem Ipsum is simply dummy text of the printing</h2>
@@ -168,7 +224,88 @@ const LandingPage = () => {
           </form>
         </div>
       </section>
+
+      {/* Footer Section */}
+      <footer className="text-black py-16 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">GRUPO F.O.M</h3>
+            <p className="text-gray-800">
+              Construyendo sueños y transformando espacios desde hace más de 10 años.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">Enlaces Rápidos</h3>
+            <ul className="space-y-2">
+              <li>
+                <button onClick={() => scrollToSection('inicio')} className="text-gray-800 hover:text-gray-400">
+                  Inicio
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('servicios')} className="text-gray-800 hover:text-gray-400">
+                  Servicios
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('proyectos')} className="text-gray-800 hover:text-gray-400">
+                  Proyectos
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('contactanos')} className="text-gray-800 hover:text-gray-400">
+                  Contáctanos
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">Contacto</h3>
+            <ul className="space-y-2">
+              <li className="text-gray-800">
+                📍 Auto.6 de noviembre/ 300 mts entrada Najayo Arriba/ San Cristobal 
+              </li>
+              <li className="text-gray-800">
+                📞 [Teléfono]
+              </li>
+              <li className="text-gray-800">
+                ✉️ [Email]
+              </li>
+            </ul>
+          </div>
+
+          {/* Social Media */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">Síguenos</h3>
+            <ul className="space-y-2">
+              <li className="text-gray-800">
+                <a href="https://www.facebook.com/grupo.fom/?locale=es_LA" target="_blank" className="text-gray-800 hover:text-gray-400">
+                    Facebook
+                </a>
+              </li>
+              <li className="text-gray-800">
+                <a href="https://www.instagram.com/grupo_fom/" target="_blank" className="text-gray-800 hover:text-gray-400">
+                    Instagram
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="max-w-7xl mx-auto pt-8 mt-8 border-t border-gray-700">
+          <p className="text-center text-black">
+            © {new Date().getFullYear()} GRUPO F.O.M. Todos los derechos reservados.
+          </p>
+        </div>
+      </footer>
     </div>
+    
   );
 };
 
