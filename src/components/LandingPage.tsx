@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react';
-import { Wrench } from 'lucide-react';
 import { ServicesSection, ProjectsSection } from '@/components/Sections';
 
 const LandingPage = () => {

@@ -1,6 +1,5 @@
 'use client'
-import React, { useState } from 'react';
-import { Wrench, Building, PaintBucket, Ruler, Truck, HardHat, Code, Palette, Database, Globe, Lock, HomeIcon } from 'lucide-react';
+import { Wrench, Building, PaintBucket, Ruler, Truck, HardHat, Palette, Globe, Lock, HomeIcon } from 'lucide-react';
 
 // Servicios data
 const services = [
