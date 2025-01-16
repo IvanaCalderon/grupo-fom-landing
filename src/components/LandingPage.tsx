@@ -99,7 +99,7 @@ const LandingPage = () => {
           <div className="space-y-6">
             <h2 className="text-black text-3xl font-bold">Lorem Ipsum is simply dummy text of the printing</h2>
             <p className="text-gray-600">
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
             </p>
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
