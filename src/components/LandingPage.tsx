@@ -42,7 +42,7 @@ const LandingPage = () => {
       } else {
         throw new Error('Error en el envío');
       }
-    } catch (error) {
+    } catch (_) {
       setSubmitStatus({
         type: 'error',
         message: 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.',
