@@ -4,7 +4,7 @@ import { Download } from 'lucide-react';
 const PDFDownloadButton = () => {
   const handleDownload = () => {
     // Replace this URL with your actual PDF file URL
-    const pdfUrl = 'CV-GRUPO-FOM.pdf';
+    const pdfUrl = 'GRUPO-FOM.pdf';
     
     // Create a temporary link element
     const link = document.createElement('a');
